@@ -9,7 +9,17 @@ with MongoDB as the database. It allows users to create short URLs for long URLs
 ```bash
 git clone https://github.com/your-username/url-shortener-backend.git
 cd url-shortener-backend
-
+```
+2. Install dependencies:
+```bash
 npm install
 npm start
-
+```
+3. Running the Server
+```bash
+npm start
+```
+Or use nodemon for development:
+```bash
+nodemon server.js
+```

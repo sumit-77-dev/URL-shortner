@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <%- include('../partials/head'); %>
+    </head>
+    <body class="container">
+
+        <header>
+            <%- include('../partials/header'); %>
+        </header>
+
+        <main>
+            <div class="jumbotron">
+                <form method="POST" action="/url">
+                    <label>Enter you url</label>
+                    <input type="text" name="url" placeholder="https://example.com">
+                    <button>Generate</button>
+                    <% if (locals.id) { %>
+                        <div><%= id %></div>
+                    <% } %>
+                </form>
+            </div>
+            <div>
+                <% if (locals.urls) { %>
+                    <table>
+                        <thead>
+                            <th>
+                                S.NO.
+                            </th>
+                            <th>
+                                ShortID
+                            </th>
+                            <th>
+                                Redirect
+                            </th>
+                            <th>
+                                Clicks
+                            </th>
+                        </thead>
+                        <tbody>
+                            <% urls.forEach((url, index) => { %>
+                                <tr>
+                                    <td><%= index + 1 %></td>
+                                    <td><%= url.shortid %></td>
+                                    <td><%= url.redirectid %></td>
+                                    <td><%=url.visitedhistory.length %></td>
+                                </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
+                <% } %>
+                
+            </div>
+        </main>
+
+        <footer>
+            <%- include('../partials/footer'); %>
+        </footer>
+
+    </body>
+</html>
